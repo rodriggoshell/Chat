@@ -4,6 +4,7 @@ import socketIOClient from 'socket.io-client';
 //socet.io
 let socket;
 
+
 function App() {
     const ENDPOINT = 'http://localhost:8080/';
     

@@ -18,24 +18,11 @@ app.get('/', (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 const server = app.listen(8080, () => {
     console.log('servidor conectado');
 });
 
 io = socket(server, {cors:{origin:"*"}});
-io.on('conection', (socket) => {
+io.on('connection', (socket) => {
     console.log(socket.id);
 });
