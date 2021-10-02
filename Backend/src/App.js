@@ -25,4 +25,14 @@ const server = app.listen(8080, () => {
 io = socket(server, {cors:{origin:"*"}});
 io.on('connection', (socket) => {
     console.log(socket.id);
+    
+    socket.on('sala_connectar', (dados) =>{
+      console.log('Sala selecionada: ' + (dados));
+      socket.join(dados);
+    });
+    
+    socket.on('enviar_mensagem', (dados) => {
+      console.log(dados);
+      socket.to(dados.sala).emit('receber_mensagem', dados.conteudo);
+    });
 });
